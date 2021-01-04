@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"> <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>org.jakartaee</groupId>
+        <artifactId>jakartaee7-samples</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    
+    <artifactId>jsf</artifactId>
+    <packaging>pom</packaging>
+    
+    <name>Java EE 7 Sample: jsf</name>
+
+    <modules>
+        <module>ajax</module>
+        <module>bean-validation</module>
+        <module>components</module>
+        <module>composite-component</module>
+        <module>contracts</module>
+        <module>contracts-library</module>
+        <module>contracts-library-impl</module>
+        <module>file-upload</module>
+        <module>flows-simple</module>
+        <module>flows-mixed</module>
+        <module>flows-programmatic</module>
+        <module>flows-declarative</module>
+        <module>http-get</module>
+        <module>passthrough</module>
+        <module>radio-buttons</module>
+        <module>resource-handling</module>
+        <module>server-extension</module>
+        <module>viewscoped</module>
+    </modules>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.jakartaee</groupId>
+            <artifactId>test-utils</artifactId>
+            <version>${project.version}</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+</project>

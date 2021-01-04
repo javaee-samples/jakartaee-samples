@@ -1,0 +1,1 @@
+CREATE TABLE EMPLOYEE_JNDI_CONTEXT ("ID" INTEGER not null primary key, "NAME" VARCHAR(50) not null)
