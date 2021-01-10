@@ -30,6 +30,7 @@
 
         <!-- Application Server versions (these are downloaded and installed
             in these versions by Maven for the CI profiles) -->
+        <piranha.version>21.1.0-SNAPSHOT</piranha.version>
         <payara.version>5.194</payara.version>
         <payara.micro.version>5.194</payara.micro.version>
         <glassfish.version>5.0</glassfish.version>
@@ -85,7 +86,7 @@
         <dependency>
             <groupId>jakarta.platform</groupId>
             <artifactId>jakarta.jakartaee-api</artifactId>
-            <version>8.0.0</version>
+            <version>9.0.0</version>
             <scope>provided</scope>
         </dependency>
     
@@ -292,6 +293,8 @@
     
             <properties>
                 <skipEJB>true</skipEJB>
+                <skipServletClientCertificate>true</skipServletClientCertificate>
+                <skipProtocolHandler>true</skipProtocolHandler>
             </properties>
     
             <dependencies>
@@ -305,7 +308,7 @@
                 <dependency>
                     <groupId>cloud.piranha.arquillian</groupId>
                     <artifactId>piranha-arquillian-server</artifactId>
-                    <version>20.12.1</version>
+                    <version>21.1.0-SNAPSHOT</version>
                     <scope>test</scope>
                 </dependency>
             </dependencies>
@@ -321,8 +324,8 @@
                                 <piranha.offline>true</piranha.offline>
                                 <piranha.async.timeout>1000</piranha.async.timeout>
                                 <skipEJB>${skipEJB}</skipEJB>
+                                <skipServletClientCertificate>${skipServletClientCertificate}</skipServletClientCertificate>
                                 <trimStackTrace>false</trimStackTrace>
-                                <argLine>-XX:+ShowCodeDetailsInExceptionMessages</argLine>
                             </systemPropertyVariables>
                         </configuration>
                     </plugin>

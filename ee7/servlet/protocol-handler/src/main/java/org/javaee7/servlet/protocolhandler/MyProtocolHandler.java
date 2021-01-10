@@ -39,8 +39,8 @@
  */
 package org.javaee7.servlet.protocolhandler;
 
-import javax.servlet.http.HttpUpgradeHandler;
-import javax.servlet.http.WebConnection;
+import jakarta.servlet.http.HttpUpgradeHandler;
+import jakarta.servlet.http.WebConnection;
 
 /**
  * @author Arun Gupta

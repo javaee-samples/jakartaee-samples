@@ -8,6 +8,7 @@ import java.net.URL;
 
 import javax.ws.rs.client.ClientBuilder;
 
+import org.glassfish.jersey.message.internal.AcceptableLanguageTag;
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.container.test.api.RunAsClient;
 import org.jboss.arquillian.junit.Arquillian;
@@ -39,8 +40,17 @@ public class EmptyAppWithLibTest {
                  .withoutTransitivity()
                  .as(JavaArchive.class);
         
-        return ShrinkWrap.create(WebArchive.class)
-                         .addAsLibraries(archiveWithServlet);
+        for (JavaArchive javaArchive : archiveWithServlet) {
+            System.out.println(javaArchive.toString(true));
+        }
+        
+        WebArchive archive = 
+            ShrinkWrap.create(WebArchive.class)
+                      .addAsLibraries(archiveWithServlet);
+        
+        System.out.println(archive.toString(true));
+        
+        return archive;
     }
 
     @Test
@@ -52,6 +62,8 @@ public class EmptyAppWithLibTest {
                          .request()
                          .get()
                          .readEntity(String.class);
+        
+        System.out.println("Respone: \"" + response + "\"");
         
         assertTrue(response.startsWith("get request"));
     }

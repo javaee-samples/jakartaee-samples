@@ -100,7 +100,7 @@ public class SecureServletTest {
         
         if (System.getProperty("ssl.debug") != null) {
             System.out.println("Setting server SSL debug on");
-            addContainerSystemProperty("javax.net.debug", "ssl:handshake");
+            addContainerSystemProperty("jakarta.net.debug", "ssl:handshake");
         }
         
         // Only test TLS v1.2 for now
@@ -252,7 +252,7 @@ public class SecureServletTest {
     }
     
     private static void enableSSLDebug() {
-        System.setProperty("javax.net.debug", "ssl:handshake");
+        System.setProperty("jakarta.net.debug", "ssl:handshake");
         
         System.getProperties().put("org.apache.commons.logging.simplelog.defaultlog", "debug");
         Logger.getLogger("com.gargoylesoftware.htmlunit.httpclient.HtmlUnitSSLConnectionSocketFactory").setLevel(FINEST);

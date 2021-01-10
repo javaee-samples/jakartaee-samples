@@ -19,6 +19,7 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <configuration>
+                    <skipTests>${skipProtocolHandler}</skipTests>
                     <systemPropertyVariables combine.children="append">
                         <!-- to request protocol upgrade, the client must send the Connection and Upgrade headers -->
                         <sun.net.http.allowRestrictedHeaders>true</sun.net.http.allowRestrictedHeaders>

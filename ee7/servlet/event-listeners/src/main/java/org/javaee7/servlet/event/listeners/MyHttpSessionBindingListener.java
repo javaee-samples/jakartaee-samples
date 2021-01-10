@@ -39,8 +39,8 @@
  */
 package org.javaee7.servlet.event.listeners;
 
-import javax.servlet.http.HttpSessionBindingEvent;
-import javax.servlet.http.HttpSessionBindingListener;
+import jakarta.servlet.http.HttpSessionBindingEvent;
+import jakarta.servlet.http.HttpSessionBindingListener;
 
 /**
  * Web application lifecycle listener.
