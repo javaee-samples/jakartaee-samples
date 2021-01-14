@@ -30,7 +30,7 @@
 
         <!-- Application Server versions (these are downloaded and installed
             in these versions by Maven for the CI profiles) -->
-        <piranha.version>21.1.0-SNAPSHOT</piranha.version>
+        <piranha.version>21.1.0</piranha.version>
         <payara.version>5.194</payara.version>
         <payara.micro.version>5.194</payara.micro.version>
         <glassfish.version>5.0</glassfish.version>
@@ -321,7 +321,7 @@
                         <configuration>
                             <systemPropertyVariables>
                                 <javaEEServer>piranha-embedded</javaEEServer>
-                                <piranha.offline>true</piranha.offline>
+                                <piranha.offline>false</piranha.offline>
                                 <piranha.async.timeout>1000</piranha.async.timeout>
                                 <skipEJB>${skipEJB}</skipEJB>
                                 <skipServletClientCertificate>${skipServletClientCertificate}</skipServletClientCertificate>
