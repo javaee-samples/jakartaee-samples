@@ -14,10 +14,14 @@ import java.security.KeyStoreException;
 import java.security.NoSuchAlgorithmException;
 import java.security.cert.Certificate;
 import java.security.cert.CertificateException;
+import java.util.AbstractMap;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import static java.util.AbstractMap.SimpleEntry;
+import static java.util.Map.Entry;
 
 /**
  * Various high level Java EE 7 samples specific operations to execute against
@@ -73,8 +77,16 @@ public class ServerOperations {
         // WildFly ./bin/add-user.sh -a -u u1 -p p1 -g g1
     }
     
-    public static void addCertificateToContainerTrustStore(Certificate clientCertificate) {
+    public static Path getContainerTrustStorePath() {
+        Entry<Path, String> trustStoreEntry = getContainerTrustStorePathAndDomain();
+        if (trustStoreEntry == null) {
+            return null;
+        }
         
+        return trustStoreEntry.getKey();
+    }
+    
+    public static Entry<Path, String> getContainerTrustStorePathAndDomain() {
         String javaEEServer = System.getProperty("javaEEServer");
         
         if ("glassfish-remote".equals(javaEEServer) || "payara-remote".equals(javaEEServer)) {
@@ -82,18 +94,18 @@ public class ServerOperations {
             String gfHome = System.getProperty("glassfishRemote_gfHome");
             if (gfHome == null) {
                 logger.info("glassfishRemote_gfHome not specified");
-                return;
+                return null;
             }
             
             Path gfHomePath = Paths.get(gfHome);
             if (!gfHomePath.toFile().exists()) {
                 logger.severe("glassfishRemote_gfHome at " + gfHome + " does not exists");
-                return;
+                return null;
             }
             
             if (!gfHomePath.toFile().isDirectory()) {
                 logger.severe("glassfishRemote_gfHome at " + gfHome + " is not a directory");
-                return;
+                return null;
             }
                         
             String domain = System.getProperty("payara_domain", "domain1");
@@ -107,8 +119,39 @@ public class ServerOperations {
             if (!cacertsPath.toFile().exists()) {
                 logger.severe("The container trust store at " + cacertsPath.toAbsolutePath() + " does not exists");
                 logger.severe("Is the domain \"" + domain + "\" correct?");
+                return null;
+            }
+            
+            return new SimpleEntry<>(cacertsPath, domain);
+            
+        } else {
+            if (javaEEServer == null) {
+                System.out.println("javaEEServer not specified");
+            } else {
+                System.out.println(javaEEServer + " not supported");
+            }
+        }
+        
+        return null;
+    }
+    
+    public static void addCertificateToContainerTrustStore(Certificate clientCertificate) {
+        addCertificateToContainerTrustStore("arquillianClientTestCert", clientCertificate);
+    }
+    
+    public static void addCertificateToContainerTrustStore(String alias, Certificate clientCertificate) {
+        
+        String javaEEServer = System.getProperty("javaEEServer");
+        
+        if ("glassfish-remote".equals(javaEEServer) || "payara-remote".equals(javaEEServer)) {
+            
+            Entry<Path, String> trustStoreEntry = getContainerTrustStorePathAndDomain();
+            if (trustStoreEntry == null) {
                 return;
             }
+            
+            Path cacertsPath = trustStoreEntry.getKey();
+            String domain = trustStoreEntry.getValue(); // The domain for which the truststore is used.
             
             logger.info("*** Adding certificate to container trust store: " + cacertsPath.toAbsolutePath());
         
@@ -117,14 +160,19 @@ public class ServerOperations {
                 keyStore = KeyStore.getInstance("JKS");
                 keyStore.load(in, "changeit".toCharArray());
                 
-                keyStore.setCertificateEntry("arquillianClientTestCert", clientCertificate);
-                
-                keyStore.store(new FileOutputStream(cacertsPath.toAbsolutePath().toFile()), "changeit".toCharArray());
+                Certificate existingCertificate = keyStore.getCertificate(alias);
+                if (!clientCertificate.equals(existingCertificate)) {
+                    keyStore.setCertificateEntry(alias, clientCertificate);
+                    keyStore.store(new FileOutputStream(cacertsPath.toAbsolutePath().toFile()), "changeit".toCharArray());
+                    restartContainer(domain);
+                } else {
+                    System.out.println("Server's truststore already contains certificate");
+                }
             } catch (KeyStoreException | NoSuchAlgorithmException | CertificateException | IOException e) {
                 throw new IllegalStateException(e);
             }
             
-            restartContainer(domain);
+            
         } else {
             if (javaEEServer == null) {
                 System.out.println("javaEEServer not specified");

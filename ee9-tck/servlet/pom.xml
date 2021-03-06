@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+   <modelVersion>4.0.0</modelVersion>
+
+   <parent>
+        <groupId>org.jakartaee</groupId>
+        <artifactId>jakartaee9-tck-samples</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+
+   <groupId>org.jakartaee8</groupId>
+   <artifactId>servlet</artifactId>
+   <packaging>pom</packaging>
+
+   <name>Jakarta EE 9 TCK Samples: Servlet</name>
+
+   <modules>
+        <module>common-client</module>
+        <module>common-server</module>
+        <module>security-clientcert</module>
+        <module>security-basic</module>
+        <module>servlet-request-async-context</module>
+        <module>servlet-request-async-event</module>
+        <module>servlet-request-async-dispatch</module>
+        <module>servlet-request-filter-on-forward</module>
+        <module>servlet-request-filter-request-dispatcher</module>
+        <module>servlet-request-generic-filter</module>
+        <module>servlet-request-generic-servlet</module>
+        <module>servlet-request-servletrequest</module>
+        <module>servlet-request-servletrequest1</module>
+        <module>servlet-request-servlet-context-30</module>
+        <module>servlet-request-servlet-context-attribute-listener</module>
+        <module>servlet-request-servlet-context-add-filter-jar</module>
+        <module>servlet-request-servlet-context-add-filter</module>
+        <module>servlet-request-request-dispatcher</module>
+        <module>http-servlet-request</module>
+    </modules>
+
+   <dependencies>
+        <dependency>
+            <groupId>org.jakartaee</groupId>
+            <artifactId>test-utils</artifactId>
+            <version>${project.version}</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+</project>
