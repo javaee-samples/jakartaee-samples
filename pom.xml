@@ -7,7 +7,7 @@
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
 
-    <name>Jakarta EE 8 TCK Samples: root</name>
+    <name>Jakarta EE Samples: root</name>
 
     <!--
         The Jakarta EE versions that this project is providing samples for.
@@ -18,10 +18,20 @@
     -->
     <modules>
         <module>test-utils</module>
-        <module>url-client</module>
-        <!--
-        <module>ee7</module>
+        
+        <!-- 
+            A proprietary URL client (tool to do HTTP requests) as used by the TCK.
+            Only needed for those samples which are based on TCK tests 
         -->
+        <module>url-client</module>
+        
+        <!-- 
+            Samples taken from javaee-samples/javaee7-samples and converted to jakarta.*
+            Note that not everything has been converted yet to jakarta.* 
+        -->
+        <module>ee7</module>
+        
+        <!-- Samples taken from javaee-samples/jakartaee8-tck and converted to jakarta.* -->
         <module>ee9-tck</module>
     </modules>
 
@@ -39,11 +49,11 @@
 
         <!-- Application Server versions (these are downloaded and installed
             in these versions by Maven for the CI profiles) -->
-        <piranha.version>21.1.0</piranha.version>
+        <piranha.version>22.1.0</piranha.version>
         <payara.version>5.194</payara.version>
         <payara.micro.version>5.194</payara.micro.version>
         <glassfish.version>6.1.0-SNAPSHOT</glassfish.version>
-        <tomcat.version>9.0.12</tomcat.version>
+        <tomcat.version>10.0.2</tomcat.version>
         <thorntail.version>2.3.0.Final</thorntail.version>
     </properties>
 
