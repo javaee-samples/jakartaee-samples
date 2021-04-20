@@ -11,5 +11,5 @@
    <artifactId>async-event</artifactId>
    <packaging>war</packaging>
 
-   <name>Jakarta EE 8 TCK Samples: Servlet - ServletRequest - Async Event</name>
+   <name>Jakarta EE 9 TCK Samples: Servlet - ServletRequest - Async Event</name>
 </project>

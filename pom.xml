@@ -25,12 +25,6 @@
         -->
         <module>url-client</module>
         
-        <!-- 
-            Samples taken from javaee-samples/javaee7-samples and converted to jakarta.*
-            Note that not everything has been converted yet to jakarta.* 
-        -->
-        <module>ee7</module>
-        
         <!-- Samples taken from javaee-samples/jakartaee8-tck and converted to jakarta.* -->
         <module>ee9-tck</module>
     </modules>
@@ -296,11 +290,33 @@
             </plugin>
         </plugins>
     </reporting>
+    
+    
+    
+    
 
-    <!-- Profiles for the application servers against which the samples are run -->
+   
     
     
     <profiles>
+        <!-- Profiles for the modules being executed -->
+    
+        <profile>
+            <id>ee7</id>
+            <modules>
+                 <!-- 
+                    Samples taken from javaee-samples/javaee7-samples and converted to jakarta.*
+                    Note that not everything has been converted yet to jakarta.* 
+                -->
+                <module>ee7</module>
+            </modules>        
+        </profile>
+    
+    
+    
+        <!-- Profiles for the application servers against which the samples are run -->
+    
+    
         <!-- ### PIRANHA ### -->
     
         <profile>

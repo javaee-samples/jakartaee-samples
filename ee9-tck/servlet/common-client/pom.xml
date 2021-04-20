@@ -7,7 +7,7 @@
     <artifactId>servlet-common-client</artifactId>
     <version>1.0-SNAPSHOT</version>
 
-    <name>Jakarta EE 8 TCK Samples: Servlet - Common - Client</name>
+    <name>Jakarta EE 9 TCK Samples: Servlet - Common - Client</name>
     
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

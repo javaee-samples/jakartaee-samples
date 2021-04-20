@@ -11,7 +11,7 @@
    <artifactId>generic-servlet</artifactId>
    <packaging>war</packaging>
 
-   <name>Jakarta EE 8 TCK Samples: Servlet - ServletRequest - GenericServlet</name>
+   <name>Jakarta EE 9 TCK Samples: Servlet - ServletRequest - GenericServlet</name>
    
    <dependencies>
         <dependency>
