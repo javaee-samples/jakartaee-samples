@@ -20,6 +20,7 @@
         <module>singlethreadmodel</module>
         <module>security-clientcert</module>
         <module>security-basic</module>
+        <module>servlet-response</module>
         <module>servlet-response-wrapper</module>
         <module>servlet-request-async-context</module>
         <module>servlet-request-async-event</module>
