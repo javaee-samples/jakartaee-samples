@@ -43,7 +43,7 @@
 
         <!-- Application Server versions (these are downloaded and installed
             in these versions by Maven for the CI profiles) -->
-        <piranha.version>21.5.0-SNAPSHOT</piranha.version>
+        <piranha.version>21.6.0-SNAPSHOT</piranha.version>
         <payara.version>5.194</payara.version>
         <payara.micro.version>5.194</payara.micro.version>
         <glassfish.version>6.1.0-RC1</glassfish.version>

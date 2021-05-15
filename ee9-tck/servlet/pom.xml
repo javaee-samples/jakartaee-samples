@@ -36,6 +36,7 @@
         <module>servlet-request-servlet-context-add-filter-jar</module>
         <module>servlet-request-servlet-context-add-filter</module>
         <module>servlet-request-request-dispatcher</module>
+        <module>httpservlet-request-servletrequest-40</module>
         <module>http-servlet-request</module>
     </modules>
 
