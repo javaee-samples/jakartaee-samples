@@ -43,10 +43,11 @@
 
         <!-- Application Server versions (these are downloaded and installed
             in these versions by Maven for the CI profiles) -->
-        <piranha.version>21.6.0-SNAPSHOT</piranha.version>
+        <glassfish.version>6.2.3</glassfish.version>
+        <piranha.version>21.11.0</piranha.version>
+        
         <payara.version>5.194</payara.version>
         <payara.micro.version>5.194</payara.micro.version>
-        <glassfish.version>6.1.0-RC1</glassfish.version>
         <tomcat.version>10.0.2</tomcat.version>
         <thorntail.version>2.3.0.Final</thorntail.version>
     </properties>
@@ -56,14 +57,14 @@
             <dependency>
                 <groupId>org.jboss.arquillian</groupId>
                 <artifactId>arquillian-bom</artifactId>
-                <version>1.7.0.Alpha6</version>
+                <version>1.7.0.Alpha10</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
             <dependency>
                 <groupId>org.jboss.arquillian.container</groupId>
                 <artifactId>arquillian-container-test-api</artifactId>
-                <version>1.7.0.Alpha6</version>
+                <version>1.7.0.Alpha10</version>
             </dependency>
             <dependency>
                 <groupId>com.h2database</groupId>
@@ -99,7 +100,7 @@
         <dependency>
             <groupId>jakarta.platform</groupId>
             <artifactId>jakarta.jakartaee-api</artifactId>
-            <version>9.0.0</version>
+            <version>9.1.0</version>
             <scope>provided</scope>
         </dependency>
     

@@ -46,4 +46,14 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
+
+    <profiles>
+        <!-- Profiles for the modules being executed -->
+        <profile>
+            <id>ejb</id>
+            <modules>
+                <module>ejb</module>
+            </modules>
+        </profile>
+    </profiles>
 </project>

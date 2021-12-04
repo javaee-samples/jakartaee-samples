@@ -11,14 +11,14 @@ import static org.jboss.shrinkwrap.api.ShrinkWrap.create;
 
 import java.io.File;
 
-import javax.inject.Inject;
-
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.junit.Arquillian;
 import org.jboss.shrinkwrap.api.spec.WebArchive;
 import org.jboss.shrinkwrap.resolver.api.maven.Maven;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+
+import jakarta.inject.Inject;
 
 /**
  * author: Jacek Jackowiak
@@ -52,12 +52,12 @@ public class SchedulesTimerBeanTest {
 
         long delay = secondPing.getTime() - firstPing.getTime();
         System.out.println("Actual timeout = " + delay);
-        
+
         long delay2 = thirdPing.getTime() - secondPing.getTime();
         System.out.println("Actual timeout = " + delay2);
-        
+
         long smallerDelay = min(delay, delay2);
-        
+
         assertThat(smallerDelay, is(withinWindow(TIMEOUT, TOLERANCE)));
     }
 }

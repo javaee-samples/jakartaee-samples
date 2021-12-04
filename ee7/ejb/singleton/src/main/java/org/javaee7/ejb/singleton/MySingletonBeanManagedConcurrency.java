@@ -40,9 +40,10 @@
 package org.javaee7.ejb.singleton;
 
 import java.util.Date;
-import javax.annotation.PostConstruct;
-import javax.ejb.Singleton;
-import javax.ejb.Startup;
+
+import jakarta.annotation.PostConstruct;
+import jakarta.ejb.Singleton;
+import jakarta.ejb.Startup;
 
 /**
  * @author Arun Gupta

@@ -39,7 +39,7 @@
  */
 package org.javaee7.ejb.stateless.remote;
 
-import javax.ejb.Local;
+import jakarta.ejb.Local;
 
 /**
  * @author Arun Gupta

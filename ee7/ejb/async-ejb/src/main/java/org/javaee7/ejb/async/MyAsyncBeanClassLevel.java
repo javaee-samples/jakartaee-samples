@@ -1,11 +1,12 @@
 package org.javaee7.ejb.async;
 
-import javax.ejb.AsyncResult;
-import javax.ejb.Asynchronous;
-import javax.ejb.Stateless;
 import java.util.concurrent.Future;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
+import jakarta.ejb.AsyncResult;
+import jakarta.ejb.Asynchronous;
+import jakarta.ejb.Stateless;
 
 /**
  * @author Arun Gupta
@@ -23,7 +24,7 @@ public class MyAsyncBeanClassLevel {
         } catch (InterruptedException ex) {
             Logger.getLogger(MyAsyncBeanClassLevel.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return new AsyncResult(n1 + n2);
+        return new AsyncResult<>(n1 + n2);
     }
 
 }

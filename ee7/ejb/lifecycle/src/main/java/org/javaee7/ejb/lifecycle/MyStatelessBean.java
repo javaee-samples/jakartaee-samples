@@ -39,9 +39,9 @@
  */
 package org.javaee7.ejb.lifecycle;
 
-import javax.annotation.PostConstruct;
-import javax.annotation.PreDestroy;
-import javax.ejb.Stateless;
+import jakarta.annotation.PostConstruct;
+import jakarta.annotation.PreDestroy;
+import jakarta.ejb.Stateless;
 
 /**
  * @author Arun Gupta

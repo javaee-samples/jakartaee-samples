@@ -41,8 +41,9 @@ package org.javaee7.ejb.stateful.remote;
 
 import java.util.ArrayList;
 import java.util.List;
-import javax.ejb.Remove;
-import javax.ejb.Stateful;
+
+import jakarta.ejb.Remove;
+import jakarta.ejb.Stateful;
 
 /**
  * @author Arun Gupta

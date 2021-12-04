@@ -9,8 +9,6 @@ import static org.jboss.shrinkwrap.api.asset.EmptyAsset.INSTANCE;
 import java.util.Arrays;
 import java.util.List;
 
-import javax.inject.Inject;
-
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.junit.Arquillian;
 import org.jboss.shrinkwrap.api.Archive;
@@ -18,6 +16,8 @@ import org.jboss.shrinkwrap.api.ShrinkWrap;
 import org.jboss.shrinkwrap.api.spec.JavaArchive;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+
+import jakarta.inject.Inject;
 
 /**
  * @author Rafał Roppel

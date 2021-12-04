@@ -40,7 +40,8 @@
 package org.javaee7.ejb.stateful.remote;
 
 import java.util.List;
-import javax.ejb.Local;
+
+import jakarta.ejb.Local;
 
 /**
  * @author Arun Gupta

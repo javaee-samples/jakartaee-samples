@@ -1,14 +1,15 @@
 package org.javaee7.ejb.timer;
 
-import javax.annotation.Resource;
-import javax.ejb.Schedule;
-import javax.ejb.SessionContext;
-import javax.ejb.Singleton;
-import javax.ejb.Startup;
-import javax.ejb.Timer;
-import javax.enterprise.event.Event;
-import javax.inject.Inject;
 import java.util.Collection;
+
+import jakarta.annotation.Resource;
+import jakarta.ejb.Schedule;
+import jakarta.ejb.SessionContext;
+import jakarta.ejb.Singleton;
+import jakarta.ejb.Startup;
+import jakarta.ejb.Timer;
+import jakarta.enterprise.event.Event;
+import jakarta.inject.Inject;
 
 /**
  * @author Arun Gupta

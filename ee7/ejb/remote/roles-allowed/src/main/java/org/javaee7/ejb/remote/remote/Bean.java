@@ -3,8 +3,8 @@ package org.javaee7.ejb.remote.remote;
 
 import java.io.Serializable;
 
-import javax.annotation.security.RolesAllowed;
-import javax.ejb.Stateless;
+import jakarta.annotation.security.RolesAllowed;
+import jakarta.ejb.Stateless;
 
 @Stateless
 public class Bean implements BeanRemote, Serializable {

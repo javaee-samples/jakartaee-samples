@@ -41,13 +41,13 @@ package org.javaee7.ejb.lifecycle;
 
 import java.util.ArrayList;
 import java.util.List;
-import javax.annotation.PostConstruct;
-import javax.annotation.PreDestroy;
-import javax.ejb.PostActivate;
-import javax.ejb.PrePassivate;
-import javax.ejb.Stateful;
-import javax.enterprise.context.Dependent;
-import javax.interceptor.InvocationContext;
+
+import jakarta.annotation.PostConstruct;
+import jakarta.annotation.PreDestroy;
+import jakarta.ejb.PostActivate;
+import jakarta.ejb.PrePassivate;
+import jakarta.ejb.Stateful;
+import jakarta.enterprise.context.Dependent;
 
 /**
  * @author Arun Gupta

@@ -1,8 +1,12 @@
 package org.javaee7.ejb.timer;
 
-import javax.ejb.*;
-import javax.enterprise.event.Event;
-import javax.inject.Inject;
+import jakarta.ejb.Schedule;
+import jakarta.ejb.Schedules;
+import jakarta.ejb.Singleton;
+import jakarta.ejb.Startup;
+import jakarta.ejb.Timer;
+import jakarta.enterprise.event.Event;
+import jakarta.inject.Inject;
 
 /**
  * @author Jacek Jackowiak

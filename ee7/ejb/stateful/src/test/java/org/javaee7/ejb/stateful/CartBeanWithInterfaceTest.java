@@ -9,8 +9,6 @@ import static org.jboss.shrinkwrap.api.asset.EmptyAsset.INSTANCE;
 import java.util.Arrays;
 import java.util.List;
 
-import javax.ejb.EJB;
-
 import org.javaee7.ejb.stateful.remote.Cart;
 import org.javaee7.ejb.stateful.remote.CartBeanWithInterface;
 import org.jboss.arquillian.container.test.api.Deployment;
@@ -20,6 +18,8 @@ import org.jboss.shrinkwrap.api.ShrinkWrap;
 import org.jboss.shrinkwrap.api.spec.JavaArchive;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+
+import jakarta.ejb.EJB;
 
 /**
  * @author rafos

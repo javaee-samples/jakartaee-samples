@@ -1,5 +1,9 @@
 package org.javaee7.ejb.stateless;
 
+import static org.hamcrest.CoreMatchers.equalTo;
+import static org.hamcrest.CoreMatchers.is;
+import static org.junit.Assert.assertThat;
+
 import org.javaee7.ejb.stateless.remote.Account;
 import org.javaee7.ejb.stateless.remote.AccountSessionBeanWithInterface;
 import org.jboss.arquillian.container.test.api.Deployment;
@@ -11,11 +15,7 @@ import org.jboss.shrinkwrap.api.spec.JavaArchive;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-import javax.ejb.EJB;
-
-import static org.hamcrest.CoreMatchers.equalTo;
-import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertThat;
+import jakarta.ejb.EJB;
 
 /**
  * @author Arun Gupta

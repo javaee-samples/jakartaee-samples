@@ -5,7 +5,7 @@ import org.hamcrest.Description;
 import org.hamcrest.Matcher;
 
 class WithinWindowMatcher extends BaseMatcher<Long> {
-    
+
     private final long timeout;
     private final long tolerance;
 

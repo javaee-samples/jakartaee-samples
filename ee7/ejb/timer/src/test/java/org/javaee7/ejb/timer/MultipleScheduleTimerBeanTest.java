@@ -11,14 +11,14 @@ import static org.jboss.shrinkwrap.api.ShrinkWrap.create;
 
 import java.io.File;
 
-import javax.inject.Inject;
-
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.junit.Arquillian;
 import org.jboss.shrinkwrap.api.spec.WebArchive;
 import org.jboss.shrinkwrap.resolver.api.maven.Maven;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+
+import jakarta.inject.Inject;
 
 /**
  * author: Jacek Jackowiak
@@ -52,12 +52,12 @@ public class MultipleScheduleTimerBeanTest {
 
         long timeBetweenFirstAndSecondPing = secondPing.getTime() - firstPing.getTime();
         System.out.println("Actual timeout = " + timeBetweenFirstAndSecondPing);
-        
+
         long timeBetweenSecondAndThirdPing = thirdPing.getTime() - secondPing.getTime();
         System.out.println("Actual timeout = " + timeBetweenSecondAndThirdPing);
-        
+
         long smallerDelay = min(timeBetweenFirstAndSecondPing, timeBetweenSecondAndThirdPing);
-        
+
         // Note; this is quite sensitive to slow CI systems.
         assertThat(smallerDelay, is(withinWindow(TIMEOUT, TOLERANCE)));
     }
