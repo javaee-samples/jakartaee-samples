@@ -8,7 +8,7 @@ For example, define a test by extending from `AbstractUrlClient`:
 
 ```java
 public class MyTester extends AbstractUrlClient {
-    public RequestClient(URL base, String testServlet) {
+    public MyTester(URL base, String testServlet) {
         super(base, testServlet);
     }
 
