@@ -19,6 +19,7 @@ public class MyTester extends AbstractUrlClient {
         TEST_PROPS.setProperty(SEARCH_STRING, "bar");
         invoke();
     }
+}
 ```
 
 From your actual test class (say a JUnit test), instantiate `MyTest` with a URL to reach the test server and test app, and a servlet within the app to call. For example, when using Arquillian:
