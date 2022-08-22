@@ -43,8 +43,8 @@
 
         <!-- Application Server versions (these are downloaded and installed
             in these versions by Maven for the CI profiles) -->
-        <glassfish.version>6.2.3</glassfish.version>
-        <piranha.version>21.11.0</piranha.version>
+        <glassfish.version>7.0.0-SNAPSHOT</glassfish.version>
+        <piranha.version>22.9.0-SNAPSHOT</piranha.version>
         
         <payara.version>5.194</payara.version>
         <payara.micro.version>5.194</payara.micro.version>
@@ -328,6 +328,8 @@
             </activation>
     
             <properties>
+                <server.suspend>maven.surefire.debug</server.suspend>
+                <piranha.offline>false</piranha.offline>
                 <skipEJB>true</skipEJB>
                 <skipServletClientCertificate>true</skipServletClientCertificate>
                 <skipProtocolHandler>true</skipProtocolHandler>
@@ -357,7 +359,7 @@
                         <configuration>
                             <systemPropertyVariables>
                                 <javaEEServer>piranha-embedded</javaEEServer>
-                                <piranha.offline>false</piranha.offline>
+                                <piranha.offline>${piranha.offline}</piranha.offline>
                                 <piranha.async.timeout>1000</piranha.async.timeout>
                                 <skipEJB>${skipEJB}</skipEJB>
                                 <skipServletClientCertificate>${skipServletClientCertificate}</skipServletClientCertificate>
@@ -376,18 +378,23 @@
     
         <profile>
             <id>glassfish-ci-managed</id>
+            
+            <properties>
+                <server.suspend>glassfish.suspend</server.suspend>
+            </properties>
 
             <dependencies>
                 <dependency>
-                    <groupId>fish.payara.arquillian</groupId>
-                    <artifactId>payara-client-ee8</artifactId>
+                    <groupId>org.omnifaces.arquillian</groupId>
+                    <artifactId>glassfish-client-ee9</artifactId>
+                    <version>1.2</version>
                 </dependency>
 
                 <!-- The actual Arquillian connector -->
                 <dependency>
-                    <groupId>fish.payara.arquillian</groupId>
-                    <artifactId>arquillian-payara-server-managed</artifactId>
-                    <version>2.2</version>
+                    <groupId>org.omnifaces.arquillian</groupId>
+                    <artifactId>arquillian-glassfish-server-managed</artifactId>
+                    <version>1.2</version>
                     <scope>test</scope>
                 </dependency>
             </dependencies>
@@ -425,19 +432,8 @@
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-surefire-plugin</artifactId>
                         <configuration>
-                            <dependencies>
-                                <dependency>
-                                    <groupId>javax.annotation</groupId>
-                                    <artifactId>javax.annotation-api</artifactId>
-                                    <version>1.3.1</version>
-                                </dependency>
-                            </dependencies>
-                            <environmentVariables>
-                                <GLASSFISH_HOME>${session.executionRootDirectory}/target/glassfish6</GLASSFISH_HOME>
-                            </environmentVariables>
-                            <!-- This needs tuning -->
                             <systemPropertyVariables>
-                                <glassfishRemote_gfHome>${session.executionRootDirectory}/target/glassfish6</glassfishRemote_gfHome>
+                                <glassfish.home>${session.executionRootDirectory}/target/glassfish7</glassfish.home>
                                 <javaEEServer>glassfish-remote</javaEEServer>
                             </systemPropertyVariables>
                         </configuration>
