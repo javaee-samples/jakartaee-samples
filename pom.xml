@@ -434,6 +434,7 @@
                         <configuration>
                             <systemPropertyVariables>
                                 <glassfish.home>${session.executionRootDirectory}/target/glassfish7</glassfish.home>
+                                <glassfish.enableDerby>true</glassfish.enableDerby>
                                 <javaEEServer>glassfish-remote</javaEEServer>
                             </systemPropertyVariables>
                         </configuration>

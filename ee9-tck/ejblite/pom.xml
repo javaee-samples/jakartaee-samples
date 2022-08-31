@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"> <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>org.jakartaee</groupId>
+        <artifactId>jakartaee9-tck-samples</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+
+   <groupId>org.jakartaee8</groupId>
+   <artifactId>ejblite</artifactId>
+   <packaging>pom</packaging>
+
+   <name>Jakarta EE 9 TCK Samples: EJB Lite</name>
+
+    <modules>
+        <module>stateless-tx</module>
+    </modules>
+
+    <dependencies>
+           <dependency>
+            <groupId>jakarta.transaction</groupId>
+            <artifactId>jakarta.transaction-api</artifactId>
+            <version>2.0.1</version>
+        </dependency>
+        <dependency>
+            <groupId>jakarta.enterprise</groupId>
+            <artifactId>jakarta.enterprise.cdi-api</artifactId>
+            <version>4.0.1</version>
+        </dependency>
+        <dependency>
+            <groupId>jakarta.interceptor</groupId>
+            <artifactId>jakarta.interceptor-api</artifactId>
+            <version>2.1.0</version>
+        </dependency>
+        <dependency>
+            <groupId>jakarta.resource</groupId>
+            <artifactId>jakarta.resource-api</artifactId>
+            <version>2.1.0</version>
+        </dependency>
+        
+        <dependency>
+            <groupId>org.jakartaee</groupId>
+            <artifactId>test-utils</artifactId>
+            <version>${project.version}</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+</project>
