@@ -9,10 +9,10 @@ import java.util.Arrays;
 import java.util.List;
 
 import javax.inject.Inject;
-import javax.persistence.EntityGraph;
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
-import javax.persistence.PersistenceUnitUtil;
+import jakarta.persistence.EntityGraph;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.PersistenceContext;
+import jakarta.persistence.PersistenceUnitUtil;
 
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.junit.Arquillian;
@@ -83,7 +83,7 @@ public class EntityGraphTest {
     @Test
     public void testEntityGraphMovieWithActors() throws Exception {
         PersistenceUnitUtil persistenceUnitUtil = entityManager.getEntityManagerFactory().getPersistenceUnitUtil();
-        List<Movie> listMoviesWithActorsFetch = movieBean.listMovies("javax.persistence.fetchgraph", "movieWithActors");
+        List<Movie> listMoviesWithActorsFetch = movieBean.listMovies("jakarta.persistence.fetchgraph", "movieWithActors");
         
         for (Movie movie : listMoviesWithActorsFetch) {
             
@@ -103,10 +103,10 @@ public class EntityGraphTest {
             assertFalse(persistenceUnitUtil.isLoaded(movie, "movieAwards"));
         }
 
-        List<Movie> listMoviesWithActorsLoad = movieBean.listMovies("javax.persistence.loadgraph", "movieWithActors");
+        List<Movie> listMoviesWithActorsLoad = movieBean.listMovies("jakarta.persistence.loadgraph", "movieWithActors");
         for (Movie movie : listMoviesWithActorsLoad) {
             // https://java.net/jira/browse/GLASSFISH-21200
-            // Glassfish is not processing "javax.persistence.loadgraph".
+            // Glassfish is not processing "jakarta.persistence.loadgraph".
             assertTrue(persistenceUnitUtil.isLoaded(movie, "movieActors"));
             assertFalse(movie.getMovieActors().isEmpty());
             for (MovieActor movieActor : movie.getMovieActors()) {
@@ -121,7 +121,7 @@ public class EntityGraphTest {
     @Test
     public void testEntityGraphMovieWithActorsAndAwards() throws Exception {
         PersistenceUnitUtil persistenceUnitUtil = entityManager.getEntityManagerFactory().getPersistenceUnitUtil();
-        List<Movie> listMoviesWithActorsFetch = movieBean.listMovies("javax.persistence.fetchgraph", "movieWithActorsAndAwards");
+        List<Movie> listMoviesWithActorsFetch = movieBean.listMovies("jakarta.persistence.fetchgraph", "movieWithActorsAndAwards");
         
         for (Movie movie : listMoviesWithActorsFetch) {
             
@@ -143,10 +143,10 @@ public class EntityGraphTest {
         }
 
         List<Movie> listMoviesWithActorsLoad =
-            movieBean.listMovies("javax.persistence.loadgraph", "movieWithActorsAndAwards");
+            movieBean.listMovies("jakarta.persistence.loadgraph", "movieWithActorsAndAwards");
         for (Movie movie : listMoviesWithActorsLoad) {
             // https://java.net/jira/browse/GLASSFISH-21200
-            // Glassfish is not processing "javax.persistence.loadgraph".
+            // Glassfish is not processing "jakarta.persistence.loadgraph".
             assertTrue(persistenceUnitUtil.isLoaded(movie, "movieActors"));
             assertFalse(movie.getMovieActors().isEmpty());
             for (MovieActor movieActor : movie.getMovieActors()) {
@@ -167,7 +167,7 @@ public class EntityGraphTest {
         fetchAll.addSubgraph(Movie_.movieDirectors);
         fetchAll.addSubgraph(Movie_.movieAwards);
 
-        List<Movie> moviesFetchAll = movieBean.listMovies("javax.persistence.fetchgraph", fetchAll);
+        List<Movie> moviesFetchAll = movieBean.listMovies("jakarta.persistence.fetchgraph", fetchAll);
         for (Movie movie : moviesFetchAll) {
             assertTrue(persistenceUnitUtil.isLoaded(movie, "movieActors"));
             assertTrue(persistenceUnitUtil.isLoaded(movie, "movieDirectors"));
@@ -179,7 +179,7 @@ public class EntityGraphTest {
     public void testEntityGraphWithNamedParameters() throws Exception {
         PersistenceUnitUtil persistenceUnitUtil = entityManager.getEntityManagerFactory().getPersistenceUnitUtil();
         
-        List<Movie> listMovieById = movieBean.listMoviesById(1, "javax.persistence.fetchgraph", "movieWithActors");
+        List<Movie> listMovieById = movieBean.listMoviesById(1, "jakarta.persistence.fetchgraph", "movieWithActors");
         assertFalse(listMovieById.isEmpty());
         assertEquals(1, listMovieById.size());
         
@@ -214,7 +214,7 @@ public class EntityGraphTest {
         PersistenceUnitUtil persistenceUnitUtil = entityManager.getEntityManagerFactory().getPersistenceUnitUtil();
 
         // Hibernate fails mixing Entity Graphs and Named Parameters with "IN". Throws NPE
-        List<Movie> listMoviesByIds = movieBean.listMoviesByIds(Arrays.asList(1, 2), "javax.persistence.fetchgraph", "movieWithActors");
+        List<Movie> listMoviesByIds = movieBean.listMoviesByIds(Arrays.asList(1, 2), "jakarta.persistence.fetchgraph", "movieWithActors");
 
         assertFalse(listMoviesByIds.isEmpty());
         assertEquals(2, listMoviesByIds.size());

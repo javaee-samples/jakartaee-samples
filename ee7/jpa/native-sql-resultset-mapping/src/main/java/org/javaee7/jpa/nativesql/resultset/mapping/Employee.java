@@ -40,7 +40,7 @@
 package org.javaee7.jpa.nativesql.resultset.mapping;
 
 import java.io.Serializable;
-import javax.persistence.*;
+import jakarta.persistence.*;
 
 /**
  * @author Arun Gupta

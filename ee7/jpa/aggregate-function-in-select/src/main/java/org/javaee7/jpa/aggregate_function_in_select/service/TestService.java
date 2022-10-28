@@ -2,9 +2,9 @@ package org.javaee7.jpa.aggregate_function_in_select.service;
 
 import java.util.List;
 
-import javax.ejb.Stateless;
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
+import jakarta.ejb.Stateless;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.PersistenceContext;
 
 import org.javaee7.jpa.aggregate_function_in_select.entity.AggregatedTestEntity;
 import org.javaee7.jpa.aggregate_function_in_select.entity.TestEntity;

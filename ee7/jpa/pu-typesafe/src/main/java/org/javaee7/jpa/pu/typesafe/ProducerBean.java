@@ -41,8 +41,8 @@ package org.javaee7.jpa.pu.typesafe;
 
 import javax.annotation.ManagedBean;
 import javax.enterprise.inject.Produces;
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.PersistenceContext;
 
 /**
  * @author Arun Gupta

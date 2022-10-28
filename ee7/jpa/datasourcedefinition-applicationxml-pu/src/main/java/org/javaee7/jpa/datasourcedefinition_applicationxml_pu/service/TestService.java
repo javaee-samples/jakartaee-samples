@@ -2,9 +2,9 @@ package org.javaee7.jpa.datasourcedefinition_applicationxml_pu.service;
 
 import java.util.List;
 
-import javax.ejb.Stateless;
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
+import jakarta.ejb.Stateless;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.PersistenceContext;
 
 import org.javaee7.jpa.datasourcedefinition_applicationxml_pu.entity.TestEntity;
 

@@ -39,11 +39,12 @@
  */
 package org.javaee7.jpa.entitygraph;
 
-import javax.ejb.Stateless;
-import javax.persistence.EntityGraph;
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
 import java.util.List;
+
+import jakarta.ejb.Stateless;
+import jakarta.persistence.EntityGraph;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.PersistenceContext;
 
 /**
  * @author Arun Gupta
@@ -51,6 +52,7 @@ import java.util.List;
 @SuppressWarnings("unchecked")
 @Stateless
 public class MovieBean {
+
     @PersistenceContext
     private EntityManager entityManager;
 

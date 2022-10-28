@@ -2,8 +2,8 @@ package org.javaee7.jpa.ordercolumn;
 
 import static org.junit.Assert.assertEquals;
 
-import javax.ejb.EJB;
-import javax.persistence.OrderColumn;
+import jakarta.ejb.EJB;
+import jakarta.persistence.OrderColumn;
 
 import org.javaee7.jpa.ordercolumn.entity.unidirectional.Child;
 import org.javaee7.jpa.ordercolumn.entity.unidirectional.Parent;

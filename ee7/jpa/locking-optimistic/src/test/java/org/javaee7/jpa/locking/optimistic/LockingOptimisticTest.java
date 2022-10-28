@@ -101,7 +101,7 @@ public class LockingOptimisticTest {
             public void run() {
                 try {
                     movieBean.readMovie(3);
-                } catch (RuntimeException e) { // Should throw an javax.persistence.OptimisticLockException? Hibernate is throwing org.hibernate.OptimisticLockException. Investigate!
+                } catch (RuntimeException e) { // Should throw an jakarta.persistence.OptimisticLockException? Hibernate is throwing org.hibernate.OptimisticLockException. Investigate!
                     testCountDownLatch.countDown();
                 }
             }
@@ -141,7 +141,7 @@ public class LockingOptimisticTest {
                 try {
                     testCountDownLatch1.countDown();
                     movieBean.updateMovie2(3, "INCEPTION");
-                } catch (RuntimeException e) { // Should throw an javax.persistence.OptimisticLockException? The Exception is wrapped around an javax.ejb.EJBException
+                } catch (RuntimeException e) { // Should throw an jakarta.persistence.OptimisticLockException? The Exception is wrapped around an jakarta.ejb.EJBException
                     testCountDownLatch2.countDown();
                 }
             }

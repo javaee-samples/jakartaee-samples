@@ -40,9 +40,9 @@
 package org.javaee7.jpa.pu.typesafe;
 
 import java.util.List;
-import javax.ejb.Stateless;
+import jakarta.ejb.Stateless;
 import javax.inject.Inject;
-import javax.persistence.EntityManager;
+import jakarta.persistence.EntityManager;
 
 /**
  * @author Arun Gupta

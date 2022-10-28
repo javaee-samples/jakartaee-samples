@@ -1,11 +1,12 @@
 package org.javaee7.jpa.entitygraph;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 import java.io.Serializable;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 
 /**
  * @author Roberto Cortez
@@ -13,6 +14,9 @@ import java.io.Serializable;
 @Entity
 @Table(name = "MOVIE_AWARDS_ENTITY_GRAPH")
 public class MovieAward implements Serializable {
+
+    private static final long serialVersionUID = 1L;
+
     @Id
     private Integer id;
 

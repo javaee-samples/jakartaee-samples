@@ -1,7 +1,7 @@
 package org.javaee7.jpa.listeners;
 
-import javax.persistence.AttributeConverter;
-import javax.persistence.Converter;
+import jakarta.persistence.AttributeConverter;
+import jakarta.persistence.Converter;
 
 /**
  * The presence of a converter causes injection to fail in Eclipselink 2.7.4

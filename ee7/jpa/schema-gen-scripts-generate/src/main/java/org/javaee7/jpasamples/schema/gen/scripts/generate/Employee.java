@@ -39,7 +39,7 @@
  */
 package org.javaee7.jpasamples.schema.gen.scripts.generate;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 import java.io.Serializable;
 
 /**

@@ -39,15 +39,15 @@
  */
 package org.javaee7.jpa.locking.optimistic;
 
-import static javax.ejb.TransactionAttributeType.REQUIRED;
-import static javax.persistence.LockModeType.OPTIMISTIC;
+import static jakarta.ejb.TransactionAttributeType.REQUIRED;
+import static jakarta.persistence.LockModeType.OPTIMISTIC;
 
 import java.util.List;
 
-import javax.ejb.Stateless;
-import javax.ejb.TransactionAttribute;
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
+import jakarta.ejb.Stateless;
+import jakarta.ejb.TransactionAttribute;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.PersistenceContext;
 
 /**
  * @author Arun Gupta

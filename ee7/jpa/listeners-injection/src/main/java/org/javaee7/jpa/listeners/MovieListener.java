@@ -1,7 +1,7 @@
 package org.javaee7.jpa.listeners;
 
-import javax.ejb.EJB;
-import javax.persistence.PostLoad;
+import jakarta.ejb.EJB;
+import jakarta.persistence.PostLoad;
 
 /**
  * @author Kuba Marchwicki

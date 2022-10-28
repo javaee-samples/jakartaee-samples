@@ -39,7 +39,7 @@
  */
 package org.javaee7.jpa.multiple.pu;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.io.Serializable;

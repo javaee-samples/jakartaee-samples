@@ -1,7 +1,7 @@
 package org.javaee7.jpa.datasourcedefinition_annotation_pu.config;
 
 import javax.annotation.sql.DataSourceDefinition;
-import javax.ejb.Stateless;
+import jakarta.ejb.Stateless;
 
 @DataSourceDefinition(
     name = "java:app/MyApp/MyDS",

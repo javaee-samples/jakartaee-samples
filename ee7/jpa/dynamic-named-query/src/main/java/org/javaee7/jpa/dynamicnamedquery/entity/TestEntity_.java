@@ -1,7 +1,7 @@
 package org.javaee7.jpa.dynamicnamedquery.entity;
 
-import javax.persistence.metamodel.SingularAttribute;
-import javax.persistence.metamodel.StaticMetamodel;
+import jakarta.persistence.metamodel.SingularAttribute;
+import jakarta.persistence.metamodel.StaticMetamodel;
 
 /**
  * The meta model of our JPA entity, which we can use to refer to the Entity's attributes

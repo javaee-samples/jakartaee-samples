@@ -5,9 +5,9 @@ import static org.javaee7.jpa.dynamicnamedquery.service.QueryRepository.Queries.
 
 import java.util.List;
 
-import javax.ejb.Stateless;
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
+import jakarta.ejb.Stateless;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.PersistenceContext;
 
 import org.javaee7.jpa.dynamicnamedquery.entity.TestEntity;
 import org.javaee7.jpa.dynamicnamedquery.entity.TestEntity_;

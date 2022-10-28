@@ -39,7 +39,7 @@
  */
 package org.javaee7.jpa.listeners;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 import java.util.concurrent.CountDownLatch;
 
 /**

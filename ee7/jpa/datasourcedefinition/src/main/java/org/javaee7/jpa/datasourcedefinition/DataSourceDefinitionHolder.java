@@ -1,7 +1,7 @@
 package org.javaee7.jpa.datasourcedefinition;
 
 import javax.annotation.sql.DataSourceDefinition;
-import javax.ejb.Stateless;
+import jakarta.ejb.Stateless;
 
 /**
  * @author Alexis Hassler

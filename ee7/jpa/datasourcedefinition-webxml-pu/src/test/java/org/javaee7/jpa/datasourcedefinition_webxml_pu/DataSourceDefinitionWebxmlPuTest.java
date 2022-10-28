@@ -5,8 +5,6 @@ import static org.junit.Assert.assertTrue;
 import java.io.File;
 import java.util.List;
 
-import javax.inject.Inject;
-
 import org.javaee7.jpa.datasourcedefinition_webxml_pu.entity.TestEntity;
 import org.javaee7.jpa.datasourcedefinition_webxml_pu.service.TestService;
 import org.jboss.arquillian.container.test.api.Deployment;
@@ -18,12 +16,14 @@ import org.jboss.shrinkwrap.resolver.api.maven.Maven;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
+import jakarta.inject.Inject;
+
 /**
- * This tests that a data source defined in web.xml can be used by JPA. 
+ * This tests that a data source defined in web.xml can be used by JPA.
  * <p>
  * The actual JPA code being run is not specifically relevant; any kind of JPA operation that
- * uses the data source is okay here. 
- * 
+ * uses the data source is okay here.
+ *
  * @author Arjan Tijms
  */
 @RunWith(Arquillian.class)
@@ -36,15 +36,20 @@ public class DataSourceDefinitionWebxmlPuTest {
 
     @Deployment
     public static Archive<?> deploy() {
-        return ShrinkWrap.create(WebArchive.class)
+        Archive<?> archive = ShrinkWrap.create(WebArchive.class)
             .addPackages(true, DataSourceDefinitionWebxmlPuTest.class.getPackage())
             .addAsResource("META-INF/persistence.xml")
             .addAsWebInfResource(resource("web.xml"))
+            .addAsWebInfResource(resource("beans.xml"))
             .addAsLibraries(Maven.resolver()
                 .loadPomFromFile("pom.xml")
                 .resolve("com.h2database:h2")
                 .withoutTransitivity()
                 .asSingleFile());
+
+        System.out.println(archive.toString(true));
+
+        return archive;
     }
 
     @Test

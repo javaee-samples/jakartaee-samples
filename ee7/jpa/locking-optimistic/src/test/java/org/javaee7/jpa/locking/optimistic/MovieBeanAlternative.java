@@ -1,12 +1,12 @@
 package org.javaee7.jpa.locking.optimistic;
 
 import static java.util.concurrent.TimeUnit.SECONDS;
-import static javax.ejb.TransactionAttributeType.REQUIRED;
+import static jakarta.ejb.TransactionAttributeType.REQUIRED;
 
 import java.util.concurrent.CountDownLatch;
 
-import javax.ejb.Stateless;
-import javax.ejb.TransactionAttribute;
+import jakarta.ejb.Stateless;
+import jakarta.ejb.TransactionAttribute;
 import javax.enterprise.inject.Alternative;
 
 /**
