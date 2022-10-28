@@ -25,6 +25,7 @@ import org.jboss.arquillian.junit.Arquillian;
 import org.jboss.arquillian.test.api.ArquillianResource;
 import org.jboss.shrinkwrap.api.ShrinkWrap;
 import org.jboss.shrinkwrap.api.spec.WebArchive;
+import org.jboss.shrinkwrap.resolver.api.maven.Maven;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -49,7 +50,22 @@ public class SimpleServletTest {
                       .addAsResource("META-INF/create.sql")
                       .addAsResource("META-INF/drop.sql")
                       .addAsWebInfResource((new File("src/main/webapp" + "/WEB-INF", "beans.xml")))
+
                       ;
+
+        if (System.getProperty("glassfish.suspend") == null ) {
+            war.addAsResource("META-INF/persistence.xml");
+        } else {
+            war.addAsResource("META-INF/persistence2.xml", "META-INF/persistence.xml")
+               .addAsWebInfResource((new File("src/main/webapp" + "/WEB-INF", "web.xml")))
+               .addAsLibraries(Maven.resolver()
+                       .loadPomFromFile("pom.xml")
+                       .resolve(
+                           "com.h2database:h2"
+                           )
+                       .withTransitivity()
+                       .asFile());
+        }
 
         System.out.println(war.toString(true));
 
@@ -90,9 +106,10 @@ public class SimpleServletTest {
     @Test
     public void supports() throws Exception {
         TextPage page = webClient.getPage(base + "SimpleServlet?test=" + "supports");
-        assertTrue(page.getContent().startsWith("passed"));
 
         System.out.println(page.getContent());
+
+        assertTrue(page.getContent().startsWith("passed"));
     }
 
     @Test

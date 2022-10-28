@@ -26,6 +26,8 @@
     <persistence-unit name="ejblite-pu" transaction-type="JTA">
         <description>Persistence Unit for CTS EJB Lite tx tests</description>
         
+        <jta-data-source>java:app/MyApp/MyDS</jta-data-source>
+        
         <properties>
             <property name="jakarta.persistence.schema-generation.database.action" value="drop-and-create" />
             <property name="jakarta.persistence.schema-generation.create-source" value="script" />

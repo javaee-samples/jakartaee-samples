@@ -29,7 +29,6 @@ import javax.naming.NamingException;
 
 import jakarta.ejb.EJB;
 import jakarta.ejb.EJBException;
-import jakarta.ejb.embeddable.EJBContainer;
 import jakarta.enterprise.context.RequestScoped;
 import jakarta.inject.Named;
 
@@ -150,7 +149,6 @@ public class CdiClient {
      */
     private String testName;
 
-    private EJBContainer container;
 
     private Context context;
 
@@ -206,13 +204,7 @@ public class CdiClient {
         this.reason = reason;
     }
 
-    public EJBContainer getContainer() {
-        return container;
-    }
 
-    public void setContainer(EJBContainer container) {
-        this.container = container;
-    }
 
     public Context getContext() {
         if (context != null) {
@@ -261,11 +253,9 @@ public class CdiClient {
     protected Object lookup(String lookupName, String beanName, Class<?> beanInterface) {
         String nameNormalized = lookupName;
 
-        if (container == null) {
-            // in JavaEE or Web environment
-            if (!lookupName.startsWith("java:")) {
-                nameNormalized = "java:comp/env/" + lookupName;
-            }
+        // in JavaEE or Web environment
+        if (!lookupName.startsWith("java:")) {
+            nameNormalized = "java:comp/env/" + lookupName;
         }
 
         try {

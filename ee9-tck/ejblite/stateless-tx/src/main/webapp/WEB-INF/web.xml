@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="https://jakarta.ee/xml/ns/jakartaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd" version="5.0">
+
+    <!-- 
+        This defines the data source that's used by persistence.xml to back to the JPA persistence unit. 
+        This data source can be optionally used for debugging.
+     -->
+    
+    <data-source>
+        <name>java:app/MyApp/MyDS</name>
+        <class-name>org.h2.jdbcx.JdbcDataSource</class-name>
+        <url>jdbc:h2:mem:test;DB_CLOSE_DELAY=-1</url>
+    </data-source>
+
+</web-app>
+
