@@ -10,7 +10,7 @@
     <artifactId>jakartaee9-tck-samples</artifactId>
     <packaging>pom</packaging>
     
-    <name>Java EE 9 TCK Samples</name>
+    <name>Jakarta EE 9 TCK Samples</name>
 
     <modules>
         <module>ejblite</module>

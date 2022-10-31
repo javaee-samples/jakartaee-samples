@@ -12,7 +12,7 @@
     <artifactId>stateless-tx</artifactId>
     <packaging>war</packaging>
 
-    <name>Java EE 7 Sample: EJB Lite - Stateless TX</name>
+    <name>Jakarta EE 9 TCK Samples: EJB Lite - Stateless TX</name>
 
     <dependencies>
         <dependency>
