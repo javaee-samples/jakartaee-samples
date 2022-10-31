@@ -25,6 +25,8 @@
         -->
         <module>url-client</module>
         
+        <module>ee7</module>
+        
         <!-- Samples taken from javaee-samples/jakartaee8-tck and converted to jakarta.* -->
         <module>ee9-tck</module>
     </modules>
@@ -127,6 +129,12 @@
         
 
         <!-- Test dependencies which can be used in sub-modules -->
+        <dependency>
+            <groupId>net.sourceforge.htmlunit</groupId>
+            <artifactId>htmlunit</artifactId>
+            <version>2.66.0</version>
+            <scope>test</scope>
+        </dependency>
 
         <dependency>
             <groupId>junit</groupId>
@@ -142,7 +150,6 @@
         <dependency>
             <groupId>org.jboss.arquillian.protocol</groupId>
             <artifactId>arquillian-protocol-servlet-jakarta</artifactId>
-               <version>1.7.0.Alpha12</version>
             <scope>test</scope>
         </dependency>
         <dependency>
@@ -166,12 +173,6 @@
             <groupId>org.skyscreamer</groupId>
             <artifactId>jsonassert</artifactId>
             <version>1.5.0</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>net.sourceforge.htmlunit</groupId>
-            <artifactId>htmlunit</artifactId>
-            <version>2.43.0</version>
             <scope>test</scope>
         </dependency>
         <dependency>
