@@ -59,7 +59,7 @@
     
     <login-config>
         <auth-method>BASIC</auth-method>
-        <realm-name>file</realm-name>
+        <realm-name>ldap</realm-name>
     </login-config>
     
     <security-role>
