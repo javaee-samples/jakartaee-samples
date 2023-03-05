@@ -17,16 +17,18 @@
 /*
  * $Id$
  */
-package org.jakartaee9.ejblite.tx;
+package org.jakartaee9.ejblite.tx.beans;
 
 import static jakarta.ejb.LockType.READ;
 import static jakarta.ejb.LockType.WRITE;
 
 import java.util.LinkedList;
 
+import org.jakartaee9.ejblite.tx.interceptors.Interceptor0;
+import org.jakartaee9.ejblite.tx.interceptors.Interceptor3;
+
 import jakarta.ejb.Lock;
 import jakarta.ejb.Singleton;
-import jakarta.inject.Named;
 import jakarta.interceptor.Interceptors;
 
 /**
@@ -35,7 +37,6 @@ import jakarta.interceptor.Interceptors;
  */
 @Singleton
 @Interceptors(Interceptor0.class)
-@NamedX("SingletonBean")
 public class SingletonBean extends BeanBase implements ConcurrencyIF {
 
     private long unlockedSum;

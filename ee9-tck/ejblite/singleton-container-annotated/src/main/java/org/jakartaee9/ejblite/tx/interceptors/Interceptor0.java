@@ -17,19 +17,16 @@
 /*
  * $Id$
  */
-package org.jakartaee9.ejblite.tx;
+package org.jakartaee9.ejblite.tx.interceptors;
 
-public interface ConcurrencyIF {
+/**
+ * Default interceptor for all beans, defined at class level.
+ *
+ */
+public class Interceptor0 extends InterceptorBase {
 
-    void addToLinkedList(Integer i);
-    int getLinkedListSizeAndClear();
-    long getAndResetLockedSum();
-    void addLocked(int num);
-    long getAndResetUnlockedSum();
-    void addUnlocked(int num);
-    long getAndResetLockedSumFromInterceptor(String interceptorName);
-    void addLockedFromInterceptor(String interceptorName, int num);
-    long getAndResetUnlockedSumFromInterceptor(String interceptorName);
-    void addUnlockedFromInterceptor(String interceptorName, int num);
-
+    @Override
+    final protected String getSimpleName() {
+        return Interceptor0.class.getSimpleName();
+    }
 }

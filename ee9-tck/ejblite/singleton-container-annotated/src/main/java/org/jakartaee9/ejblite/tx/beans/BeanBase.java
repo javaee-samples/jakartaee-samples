@@ -18,13 +18,18 @@
  * $Id$
  */
 
-package org.jakartaee9.ejblite.tx;
+package org.jakartaee9.ejblite.tx.beans;
 
 import static jakarta.ejb.LockType.READ;
 import static jakarta.ejb.LockType.WRITE;
 
 import jakarta.ejb.Lock;
 
+/**
+ * Base class for SingletonBean and ReadSingletonBean with some default implementations for
+ * the ConcurrencyIF interface.
+ *
+ */
 abstract public class BeanBase implements ConcurrencyIF {
 
     private static final String msg = "Should not reach here. The interceptors should have returned "

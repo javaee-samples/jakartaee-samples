@@ -25,11 +25,13 @@ import jakarta.annotation.Resource;
 import jakarta.ejb.EJB;
 import jakarta.ejb.Stateless;
 import jakarta.ejb.TransactionManagement;
+import jakarta.inject.Named;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import jakarta.transaction.UserTransaction;
 
 @Stateless
+@Named("TestBean")
 @TransactionManagement(BEAN)
 public class TestBean {
 

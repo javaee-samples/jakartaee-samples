@@ -20,10 +20,10 @@
 <ejb-jar xmlns="https://jakarta.ee/xml/ns/jakartaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="4.0" xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/ejb-jar_4_0.xsd">
     <interceptors>
         <interceptor>
-            <interceptor-class>org.jakartaee9.ejblite.tx.Interceptor0</interceptor-class>
+            <interceptor-class>org.jakartaee9.ejblite.tx.interceptors.Interceptor0</interceptor-class>
         </interceptor>
         <interceptor>
-            <interceptor-class>org.jakartaee9.ejblite.tx.Interceptor3</interceptor-class>
+            <interceptor-class>org.jakartaee9.ejblite.tx.interceptors.Interceptor3</interceptor-class>
         </interceptor>
     </interceptors>
     
@@ -31,7 +31,7 @@
     <!--  
         <interceptor-binding>
             <ejb-name>*</ejb-name>
-            <interceptor-class>org.jakartaee9.ejblite.tx.Interceptor0</interceptor-class>
+            <interceptor-class>org.jakartaee9.ejblite.tx.interceptors.Interceptor0</interceptor-class>
         </interceptor-binding>
         -->
         

@@ -18,7 +18,7 @@
  * $Id$
  */
 
-package org.jakartaee9.ejblite.tx;
+package org.jakartaee9.ejblite.tx.interceptors;
 
 import java.util.logging.Logger;
 
@@ -42,20 +42,16 @@ public class InterceptorBase {
 
     @AroundInvoke
     private Object intercept(InvocationContext inv) throws Exception {
+        String methodName = inv.getMethod().getName();
+        Object[] params = inv.getParameters();
+        String interceptorName = null;
+        if (params != null && params.length > 0) {
+            if (params[0] instanceof String) {
+                interceptorName = (String) params[0]; // simple class name
+            }
+        }
 
-        return inv.proceed();
-
-//
-//        String methodName = inv.getMethod().getName();
-//        Object[] params = inv.getParameters();
-//        String interceptorName = null;
-//        if (params != null && params.length > 0) {
-//            if (params[0] instanceof String) {
-//                interceptorName = (String) params[0]; // simple class name
-//            }
-//        }
-//
-//        return intercept0(inv, methodName, interceptorName, params);
+        return intercept0(inv, methodName, interceptorName, params);
     }
 
     /**

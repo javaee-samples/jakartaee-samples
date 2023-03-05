@@ -15,6 +15,7 @@
 
     <modules>
         <module>stateless-tx</module>
+        <module>singleton-container-annotated</module>
     </modules>
 
     <dependencies>

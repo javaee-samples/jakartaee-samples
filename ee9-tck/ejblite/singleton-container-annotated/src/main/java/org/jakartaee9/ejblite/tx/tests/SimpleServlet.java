@@ -13,7 +13,7 @@
  *
  * SPDX-License-Identifier: EPL-2.0 OR GPL-2.0 WITH Classpath-exception-2.0
  */
-package org.jakartaee9.ejblite.tx;
+package org.jakartaee9.ejblite.tx.tests;
 
 import java.io.IOException;
 
@@ -24,6 +24,11 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
+/**
+ * This servlet is called by the client side test. The servlet on its turn calls the CDI bean that
+ * conducts the actual tests.
+ *
+ */
 @WebServlet("/SimpleServlet")
 public class SimpleServlet extends HttpServlet {
 

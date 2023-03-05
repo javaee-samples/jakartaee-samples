@@ -14,15 +14,23 @@
  * SPDX-License-Identifier: EPL-2.0 OR GPL-2.0 WITH Classpath-exception-2.0
  */
 
-/*
- * $Id$
+/**
+ * This interface contains the methods used for testing, and which are implemented by
+ * two test beans.
  */
-package org.jakartaee9.ejblite.tx;
+package org.jakartaee9.ejblite.tx.beans;
 
-public class Interceptor0 extends InterceptorBase {
+public interface ConcurrencyIF {
 
-    @Override
-    final protected String getSimpleName() {
-        return Interceptor0.class.getSimpleName();
-    }
+    void addToLinkedList(Integer i);
+    int getLinkedListSizeAndClear();
+    long getAndResetLockedSum();
+    void addLocked(int num);
+    long getAndResetUnlockedSum();
+    void addUnlocked(int num);
+    long getAndResetLockedSumFromInterceptor(String interceptorName);
+    void addLockedFromInterceptor(String interceptorName, int num);
+    long getAndResetUnlockedSumFromInterceptor(String interceptorName);
+    void addUnlockedFromInterceptor(String interceptorName, int num);
+
 }

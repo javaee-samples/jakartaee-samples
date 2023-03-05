@@ -17,7 +17,7 @@
 /*
  * $Id$
  */
-package org.jakartaee9.ejblite.tx;
+package org.jakartaee9.ejblite.tx.tests;
 
 import java.io.PrintWriter;
 import java.io.Serializable;
@@ -31,12 +31,13 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 
+import org.jakartaee9.ejblite.tx.beans.ConcurrencyIF;
 import org.jboss.logging.Logger;
 import org.jboss.logging.Logger.Level;
 
+import jakarta.ejb.EJB;
 import jakarta.ejb.EJBException;
 import jakarta.enterprise.context.RequestScoped;
-import jakarta.inject.Inject;
 import jakarta.inject.Named;
 
 @Named("client")
@@ -55,7 +56,7 @@ public class CdiClient implements Serializable {
      * Interceptor0 is the default interceptor for all beans.
      *
      * Interceptor3 is declared as method-level interceptors for SingletonBean's business methods with
-     * "FromInterceptor" in its name. See ejb-jar.xml.
+     * "FromInterceptor" in its name.
      *
      * The around-invoke method of both Interceptor0 and Interceptor3 are in their superclass. These business
      * methods pass a param interceptorName to indicate which interceptor needs to take action. If this
@@ -69,15 +70,13 @@ public class CdiClient implements Serializable {
     protected ConcurrencyIF singleton;
     protected ConcurrencyIF singleton2;
 
-    // @EJB(beanName = "SingletonBean")
-    @Inject
-    public void setSingleton(@NamedX("SingletonBean") ConcurrencyIF singleton) {
+    @EJB(beanName = "SingletonBean")
+    public void setSingleton(ConcurrencyIF singleton) {
       this.singleton = singleton;
     }
 
-    // @EJB(beanName = "ReadSingletonBean")
-    @Inject
-    public void setSingleton2(@NamedX("ReadSingletonBean") ConcurrencyIF singleton2) {
+    @EJB(beanName = "ReadSingletonBean")
+    public void setSingleton2(ConcurrencyIF singleton2) {
       this.singleton2 = singleton2;
     }
 
@@ -173,36 +172,36 @@ public class CdiClient implements Serializable {
         lockedLinkedList(singleton2);
     }
 
-    protected void unlockedSum(ConcurrencyIF b) {
-        concurrentWrites(b, "addUnlocked", null);
-        long actual = b.getAndResetUnlockedSum();
+    protected void unlockedSum(ConcurrencyIF bean) {
+        concurrentWrites(bean, "addUnlocked", null);
+        long actual = bean.getAndResetUnlockedSum();
         assertNotEquals("Compare CORRECT_SUM " + CORRECT_SUM + ", and actual " + actual, CORRECT_SUM, actual);
     }
 
-    protected void unlockedSumFromInterceptors(ConcurrencyIF b) {
-        for (String inter : INTERCEPTORS) {
-            concurrentWrites(b, "addUnlockedFromInterceptor", inter);
-            long actual = b.getAndResetUnlockedSumFromInterceptor(inter);
+    protected void unlockedSumFromInterceptors(ConcurrencyIF bean) {
+        for (String interceptor : INTERCEPTORS) {
+            concurrentWrites(bean, "addUnlockedFromInterceptor", interceptor);
+            long actual = bean.getAndResetUnlockedSumFromInterceptor(interceptor);
             assertNotEquals("Compare CORRECT_SUM " + CORRECT_SUM + ", and actual " + actual, CORRECT_SUM, actual);
         }
     }
 
-    protected void lockedSum(ConcurrencyIF b) {
-        concurrentWrites(b, "addLocked", null);
-        assertEquals(null, CORRECT_SUM, b.getAndResetLockedSum());
+    protected void lockedSum(ConcurrencyIF bean) {
+        concurrentWrites(bean, "addLocked", null);
+        assertEquals(null, CORRECT_SUM, bean.getAndResetLockedSum());
     }
 
-    protected void lockedSumFromInterceptors(ConcurrencyIF b) {
-        for (String inter : INTERCEPTORS) {
-            concurrentWrites(b, "addLockedFromInterceptor", inter);
-            long actual = b.getAndResetLockedSumFromInterceptor(inter);
+    protected void lockedSumFromInterceptors(ConcurrencyIF bean) {
+        for (String interceptor : INTERCEPTORS) {
+            concurrentWrites(bean, "addLockedFromInterceptor", interceptor);
+            long actual = bean.getAndResetLockedSumFromInterceptor(interceptor);
             assertEquals(null, CORRECT_SUM, actual);
         }
     }
 
-    protected void lockedLinkedList(ConcurrencyIF b) {
-        concurrentWrites(b, "addToLinkedList", null);
-        assertEquals(null, NUM_OF_THREADS * NUM_OF_ADDITIONS, b.getLinkedListSizeAndClear());
+    protected void lockedLinkedList(ConcurrencyIF bean) {
+        concurrentWrites(bean, "addToLinkedList", null);
+        assertEquals(null, NUM_OF_THREADS * NUM_OF_ADDITIONS, bean.getLinkedListSizeAndClear());
     }
 
     protected void concurrentWrites(final ConcurrencyIF bean, final String methodName, final String interceptorName) {

@@ -17,7 +17,7 @@
 /*
  * $Id$
  */
-package org.jakartaee9.ejblite.tx;
+package org.jakartaee9.ejblite.tx.tests;
 
 import java.util.logging.Logger;
 

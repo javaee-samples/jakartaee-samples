@@ -20,6 +20,16 @@ import static org.junit.Assert.assertTrue;
 import java.io.File;
 import java.net.URL;
 
+import org.jakartaee9.ejblite.tx.beans.BeanBase;
+import org.jakartaee9.ejblite.tx.beans.ConcurrencyIF;
+import org.jakartaee9.ejblite.tx.beans.ReadSingletonBean;
+import org.jakartaee9.ejblite.tx.beans.SingletonBean;
+import org.jakartaee9.ejblite.tx.interceptors.Interceptor0;
+import org.jakartaee9.ejblite.tx.interceptors.Interceptor3;
+import org.jakartaee9.ejblite.tx.interceptors.InterceptorBase;
+import org.jakartaee9.ejblite.tx.tests.Asserts;
+import org.jakartaee9.ejblite.tx.tests.CdiClient;
+import org.jakartaee9.ejblite.tx.tests.SimpleServlet;
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.junit.Arquillian;
 import org.jboss.arquillian.test.api.ArquillianResource;
@@ -44,7 +54,20 @@ public class SimpleServletTest {
     public static WebArchive createDeployment() {
         WebArchive war =
             ShrinkWrap.create(WebArchive.class)
-                      .addPackage(CdiClient.class.getPackage())
+                      .addClasses(
+                          ConcurrencyIF.class,
+                          BeanBase.class,
+                          ReadSingletonBean.class,
+                          SingletonBean.class,
+
+                          InterceptorBase.class,
+                          Interceptor0.class,
+                          Interceptor3.class,
+
+                          SimpleServlet.class,
+                          CdiClient.class,
+                          Asserts.class)
+
                       .addAsWebInfResource((new File("src/main/webapp" + "/WEB-INF", "beans.xml")))
                       .addAsWebInfResource((new File("src/main/webapp" + "/WEB-INF", "ejb-jar.xml")))
                       ;

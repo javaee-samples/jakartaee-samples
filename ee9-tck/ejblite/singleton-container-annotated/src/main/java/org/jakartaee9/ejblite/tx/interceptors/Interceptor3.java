@@ -17,8 +17,13 @@
 /*
  * $Id$
  */
-package org.jakartaee9.ejblite.tx;
+package org.jakartaee9.ejblite.tx.interceptors;
 
+/**
+ * This interceptor is declared as method-level interceptor for SingletonBean's and ReadSingletonBean's business methods with
+ * "FromInterceptor" in their name.
+ *
+ */
 public class Interceptor3 extends InterceptorBase {
 
     @Override
